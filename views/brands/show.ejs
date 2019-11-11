@@ -1,0 +1,15 @@
+<h2><%= brand.name%></h2>
+<a href="/brands/<%= brand.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { 
+    url: `/brands/${ brand.id }`
+}) %>
+<% if(phonesOfBrand.length > 0 ) { %>
+    <h2>Phones Of Brand</h2>
+    <% phonesOfBrand.forEach(phone => { %>
+        <img src="<%= phone.image.slice(6)%>" height="80" width="70">
+        <div><%= phone.name%></div>
+        <%- include('../partials/deleteForm', {
+            url: `/phones/${ phone.id }`
+        }) %>
+    <% }) %>
+<% } %>

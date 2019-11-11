@@ -1,0 +1,27 @@
+<form action="/phones" method="get">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value="<%= searchOptions%>">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-info">Search Phone</button>
+    </div>
+</form>
+<div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <% phones.forEach(phone => { %>
+                    <tbody>
+                        <td><%= phone.name %></td>
+                        <td><img src="<%= phone.image.slice(6)%>" height="80" width="70"></td>
+                        <td> <%- include('../partials/deleteForm', { url: `/phones/${ phone.id }` }) %></td>
+                    </tbody>
+            <% }) %>
+        </table>
+</div>

@@ -1,0 +1,39 @@
+<div>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= phone.name %>">
+</div>
+<div>
+    <label>Brand</label>
+    <select name="brand">
+        <% brands.forEach(brand => { %>
+            <% if (brand.id == phone.brand) { %>
+                <option selected label="<%= brand.name %>" value="<%= brand.id %>"></option>
+            <% } else { %>
+                <option label="<%= brand.name %>" value="<%= brand.id %>"></option>
+            <% }%>
+        <% }) %>
+    </select>
+</div>
+<div>
+    <label>Price</label>
+    <input type="number" name="price" value="<%= phone.price %>">
+</div>
+<div>
+    <label>Color</label>
+    <select name="color" value="<%= phone.color %>">
+        <option>White</option>
+        <option>Black</option>
+        <option>Yellow</option>
+        <option>Red</option>
+        <option>Gray</option>
+        <option>Other</option>
+    </select>
+</div>
+<div>
+    <label>Product Image</label>
+    <input type="file" name="image">
+</div>
+<div>
+    <label>Description</label>
+    <textarea name="description" value="<%= phone.description%>"></textarea>
+</div>

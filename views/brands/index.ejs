@@ -1,0 +1,31 @@
+<form action="/brands" method="get">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value="<%= searchOptions%>">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-info">Search Brand</button>
+    </div>
+</form>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">View</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <% brands.forEach(brand => { %>
+            <tbody>
+                <td><%= brand.name %></td>
+                <td><a href="/brands/<%= brand.id %>">View</a></td>
+                <td><a href="/brands/<%= brand.id %>/edit">Edit</a></td>
+                <td><%- include('../partials/deleteForm', { url: `/brands/${brand.id}` }) %></td>
+            </tbody>
+        <% }) %>
+        
+    </table>
+    
+</div>
